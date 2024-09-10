@@ -1,0 +1,243 @@
+/* General styling for body */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper to control layout */
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* On smaller screens, start content near the top */
+@media (max-width: 600px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+}
+
+/* Main container styling */
+.container {
+  background-color: var(--container-bg);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+/* Main heading styling */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Info icon styling */
+#info-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-color);
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Dark mode specific color for the info icon */
+body.dark #info-icon {
+  color: #bbb;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  font-size: 11px;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Spacing for sections like settings and controls */
+.settings,
+.controls,
+.toggles {
+  margin-bottom: 20px;
+}
+
+/* Input fields for session and break length */
+input[type='number'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Timer display */
+#time-display {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Control buttons */
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+/* Hover state for buttons */
+.controls button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: var(--container-bg);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15% auto;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* Close button for the modal */
+.modal .close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Break reminder text during breaks */
+#break-reminder {
+  font-size: 14px;
+  margin-top: 10px;
+  color: var(--text-color);
+}
+
+/* Hide break reminder initially */
+.hidden {
+  display: none;
+}
+
+/* Toggles section styling */
+.toggles {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Small margin between the toggles */
+  margin-bottom: 20px;
+}
+
+.sound-toggle,
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+/* Slider styling */
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.slider-label {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  font-size: 12px;
+  color: white;
+}
+
+#sound,
+#theme-slider {
+  width: 70px;
+  height: 25px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #b0bec5;
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sound::-webkit-slider-thumb,
+#theme-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode toggle background */
+body.dark #sound,
+body.dark #theme-slider {
+  background-color: #455a64; /* Dark Cool Gray for dark mode */
+}
+
+/* Light theme variables */
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --container-bg: #fff;
+  --border-color: #ddd;
+  --button-bg: #007bff;
+  --button-text: #fff;
+  --button-hover-bg: #0056b3;
+}
+
+/* Dark theme variables */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --container-bg: #1f1f1f;
+  --border-color: #555;
+  --button-bg: #6200ea;
+  --button-text: #fff;
+  --button-hover-bg: #3700b3;
+}

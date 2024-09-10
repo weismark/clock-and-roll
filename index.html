@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A study timer app to help you manage study sessions and break time using the Pomodoro technique."
+    />
+    <meta
+      name="keywords"
+      content="Study Timer, Pomodoro Technique, Breaks, Time Management"
+    />
+    <meta property="og:title" content="Clock & Roll App" />
+    <meta
+      property="og:description"
+      content="A study timer app to help manage study and break time using the Pomodoro technique."
+    />
+    <meta property="og:image" content="icon.png" />
+    <meta property="og:url" content="https://www.wisemancodes.com/clocknroll" />
+    <title>Clock & Roll</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" role="main">
+      <header class="header">
+        <h1>Clock & Roll</h1>
+        <!-- Info icon next to the header -->
+        <button
+          id="info-icon"
+          aria-label="Information about this app"
+          title="What is this app?"
+        >
+          <i class="fas fa-info-circle" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <!-- Info modal for app explanation -->
+      <div
+        id="info-modal"
+        class="modal"
+        role="dialog"
+        aria-labelledby="info-icon"
+        aria-hidden="true"
+      >
+        <div class="modal-content">
+          <button
+            class="close"
+            aria-label="Close information modal"
+            title="Close"
+          >
+            &times;
+          </button>
+          <p>
+            This study timer app helps you manage your study sessions using the
+            <a
+              href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pomodoro technique </a
+            >. Set a session length, a break time, and the app will notify you
+            when to study and when to take breaks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Session and Break Time Inputs -->
+      <div class="settings">
+        <label for="session-length">Session Length (minutes):</label>
+        <input
+          type="number"
+          id="session-length"
+          value="25"
+          min="1"
+          title="Set session length in minutes"
+          aria-label="Session length in minutes"
+        />
+
+        <label for="break-length">Break Length (minutes):</label>
+        <input
+          type="number"
+          id="break-length"
+          value="5"
+          min="1"
+          title="Set break length in minutes"
+          aria-label="Break length in minutes"
+        />
+      </div>
+
+      <!-- Timer Display -->
+      <div class="timer" role="timer" aria-live="polite" aria-atomic="true">
+        <h2 id="timer-label">Session</h2>
+        <div id="time-display">25:00</div>
+        <!-- Break reminder text -->
+        <p id="break-reminder" class="hidden">
+          Take a break! Stretch, walk, relax your eyes, and drink some water!
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="start-pause" aria-label="Start or pause the timer">
+          Start
+        </button>
+        <button id="reset" aria-label="Reset the timer">Reset</button>
+      </div>
+
+      <!-- Sound and Theme Toggle -->
+      <div class="toggles">
+        <div class="sound-toggle">
+          <label for="sound">Sound</label>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="sound"
+              min="0"
+              max="1"
+              step="1"
+              value="1"
+              aria-label="Sound toggle"
+              title="Toggle sound on or off"
+            />
+            <span id="sound-label" class="slider-label">On</span>
+          </div>
+        </div>
+
+        <div class="theme-toggle">
+          <label for="theme-slider">Theme</label>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="theme-slider"
+              min="0"
+              max="1"
+              step="1"
+              value="0"
+              aria-label="Theme toggle"
+              title="Toggle between light and dark theme"
+            />
+            <span id="theme-label" class="slider-label">Light</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <footer role="contentinfo">
+      <p id="copyright">© 2024 WisemanCodes. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
