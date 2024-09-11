@@ -119,8 +119,27 @@ function stopBlinking() {
 // Play sound effect to notify user of break
 function playSound() {
   if (soundOn) {
-    const audio = new Audio('break-sound.mp3'); // Make sure to add your sound file
-    audio.play();
+    const audio = new Audio('break-sound.mp3'); // Create the audio object
+    let playCount = 0; // Initialize a counter to track plays
+
+    // Play the sound twice
+    function playTwice() {
+      if (playCount < 2) {
+        // Limit to 2 plays
+        audio.currentTime = 0; // Reset audio to the start
+        audio.play();
+        playCount++;
+
+        audio.addEventListener('ended', () => {
+          if (playCount < 2) {
+            setTimeout(playTwice, 800);
+          }
+        });
+      }
+    }
+
+    // Start the first play
+    playTwice();
   }
 }
 
